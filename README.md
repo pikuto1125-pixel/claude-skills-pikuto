@@ -11,7 +11,7 @@ Built and maintained by **pikuto** ([@ue6654](https://x.com/ue6654)) — running
 | [`session-handoff-builder`](./session-handoff-builder/) | Ends long Claude Code sessions cleanly. Updates task files, writes a structured handoff, leaves the next session ready to resume cold. | Stable |
 | [`daily-content-rotator`](./daily-content-rotator/) | Rotates tomorrow's content drafts across multi-channel posting (microblog / blog / newsletter). Theme-by-weekday + recency dedup + post-fire safety. | Stable |
 | `memory-audit-helper` | Periodic memory directory hygiene. Detects duplicates, stale entries, orphaned files. | Planned |
-| `inbox-pattern-skill` | Structural deduplication for systems with multiple senders. File-based, durable, no DB. | Planned |
+| [`inbox-pattern-skill`](./inbox-pattern-skill/) | Structural deduplication for systems with multiple senders. File-based, durable, no DB. | Stable |
 | `polling-watcher-skill` | Lock-based single-instance scheduler pattern with dual triggers (logon + interval). | Planned |
 | `eight-layer-validator-skill` | Multi-layer validator pipeline with single-responsibility per layer. Cheap regex first, expensive LLM judge later. | Planned |
 
