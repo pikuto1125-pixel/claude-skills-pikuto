@@ -1,77 +1,76 @@
-# claude-skills-pikuto
+ # claude-skills-pikuto
 
-[Claude Code](https://docs.claude.com/en/docs/claude-code/) Skills extracted from a solo AI automation operation. Patterns that work for a one-person business, not the kind that need a platform team to operate.
+  > Production-tested Claude Code skills, extracted from a 9-month solo AI automation system.
+  >
+  > Part of [Arena Blueprint](https://ai-hack-lab.com/products/arena-blueprint/) — a 10-module documentation of patterns that survived contact with reality.
 
-Built and maintained by **pikuto** ([@ue6654](https://x.com/ue6654)) — running [AI Hack Lab](https://ai-hack-lab.com/).
+  [![Website](https://img.shields.io/badge/Website-ai--hack--lab.com-10b981)](https://ai-hack-lab.com/)
+  [![Blueprint](https://img.shields.io/badge/Arena_Blueprint-Lite_$39-emerald)](https://ai-hack-lab.com/en/products/arena-blueprint/)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+  [![Twitter](https://img.shields.io/badge/Twitter-@ue6654-1da1f2)](https://x.com/ue6654)
 
-## Skills in this pack
+  ## What this is
 
-| Skill | What it does | Status |
-|-------|--------------|--------|
-| [`session-handoff-builder`](./session-handoff-builder/) | Ends long Claude Code sessions cleanly. Updates task files, writes a structured handoff, leaves the next session ready to resume cold. | Stable |
-| [`daily-content-rotator`](./daily-content-rotator/) | Rotates tomorrow's content drafts across multi-channel posting (microblog / blog / newsletter). Theme-by-weekday + recency dedup + post-fire safety. | Stable |
-| `memory-audit-helper` | Periodic memory directory hygiene. Detects duplicates, stale entries, orphaned files. | Planned |
-| [`inbox-pattern-skill`](./inbox-pattern-skill/) | Structural deduplication for systems with multiple senders. File-based, durable, no DB. | Stable |
-| `polling-watcher-skill` | Lock-based single-instance scheduler pattern with dual triggers (logon + interval). | Planned |
-| `eight-layer-validator-skill` | Multi-layer validator pipeline with single-responsibility per layer. Cheap regex first, expensive LLM judge later. | Planned |
+  A small, opinionated collection of Claude Code skills that I (pikuto, a 20-year-old solo founder) use daily in production. They're extracted from a larger system documented in **Arena Blueprint**.
 
-## Why these patterns
+  These are battle-tested, not theoretical: the failure logs that shaped each skill are documented in the corresponding Blueprint module.
 
-These skills were extracted from a system that runs daily in production for a solo operator: sales pipeline, customer reply, content distribution, and self-evolution feedback loops, all running across school hours and part-time shifts.
+  ## Skills
 
-The bias of the pack is toward **operational durability**. Patterns survive crashes, OS restarts, cloud-sync conflicts, schedule mismatches, and the occasional 3-day silent failure that no one notices until Monday. Most of these patterns came from incidents — they're the lessons paid for in lost evenings.
+  ### Stable
 
-## Common installation
+  | Skill | Description | Module |
+  |---|---|---|
+  | `session-handoff-builder` | Generate a structured handoff document at session-end. Captures state, files touched, decisions, next priorities. | Module 5: Self-Evolution |
+  | `daily-content-rotator` | Multi-channel daily content rotation engine. Per-day idea selection from a shared bank. | Module 3: Content Distribution |
 
-Each skill ships as a single `SKILL.md` plus a README and license. Two installation paths:
+  ### Planned (releases roll out post-launch)
 
-### Option A: copy one skill
+  - `inbox-pattern-skill` — file-based dedup that survives crashes (Module 7)
+  - `polling-watcher-skill` — lock-based single-instance scheduler (Modules 1, 9)
+  - `eight-layer-validator-skill` — pipeline orchestrator (Module 4)
+  - `generator-validator-pair-skill` — template pair structure (Module 8)
+  - `polling-daemon-skill` — daemon with heartbeat + sandbox (Module 10)
+  - `anti-drift-guard-skill` — rule-set template + sprint binding (Module 6)
 
-```bash
-mkdir -p ~/.claude/skills/<skill-name>
-curl -o ~/.claude/skills/<skill-name>/SKILL.md \
-  https://raw.githubusercontent.com/<your-username>/claude-skills-pikuto/main/<skill-name>/SKILL.md
-```
+  ## Installation
 
-### Option B: clone the whole pack
+  Each skill is a standalone Claude Code skill. Drop the folder into `~/.claude/skills/<skill-name>/` and Claude Code picks it up automatically.
 
-```bash
-git clone https://github.com/<your-username>/claude-skills-pikuto.git
-cp -r claude-skills-pikuto/* ~/.claude/skills/
-```
+  ```bash
+  git clone https://github.com/pikuto1125-pixel/claude-skills-pikuto.git
+  cp -r claude-skills-pikuto/<skill-name> ~/.claude/skills/
+  ```
 
-Each skill's own README has its specific trigger phrases, configuration knobs, and customization points.
+  ## Read the full Blueprint
 
-## Compatibility
+  The patterns above are documented in detail at:
 
-- Claude Code (CLI, IDE extensions, web app at `claude.ai/code`)
-- Tested with `claude-opus-4-7`, `claude-sonnet-4-6`, `claude-haiku-4-5`
-- Skills format follows [Claude Code Skills spec](https://docs.claude.com/en/docs/claude-code/skills)
+  - 🇯🇵 **[Arena Blueprint (JA)](https://ai-hack-lab.com/products/arena-blueprint/)** — 10 モジュール完全版・失敗ログ + 教訓 + Validator チェックリスト
+  - 🇺🇸 **[Arena Blueprint (EN)](https://ai-hack-lab.com/en/products/arena-blueprint/)** — Full architecture, design decisions, and adaptation guides
+  - 📖 **[Read it free on Notion](https://shared-cut-385.notion.site/arena_blueprint_complete_v1-358347a29814808b81c1efe8d81cebe7)** — All 10 modules readable for free
+  - 🆓 **[5-min workflow diagnosis (free)](https://ai-hack-lab.com/diagnosis/)** — Find the right pattern for your project
 
-## The full architecture
+  Tiers:
+  - **Lite ($39)** — Notion Blueprint + this Skills Bundle
+  - **Pro ($99)** — Lite + lifetime updates + private Q&A
+  - **Enterprise ($199)** — Pro + 60-min 1:1 adaptation review (Zoom)
 
-These skills are extracted patterns from a larger documented system, **Arena Blueprint** — the complete documentation of a 14-phase AI automation pipeline distilled into 10 transferable modules.
+  Launching **Mon May 12, 2026 · 8 AM JST**.
 
-If the skills are useful and you want the full architecture (sales pipeline, customer reply, content distribution, self-evolution mechanism, anti-drift guard, inbox pattern, generator+validator principle, scheduling+health-check, mobile remote operation), Arena Blueprint launches in May 2026 via [Polar](https://polar.sh/).
+  ## Articles by pikuto
 
-Pre-launch info: [ai-hack-lab.com/en/products/arena-blueprint](https://ai-hack-lab.com/en/products/arena-blueprint)
+  - [Qiita: 8 層 Validator（全体像）](https://qiita.com/pikuto1125-pixel/items/1655c87495424d4ba447)
+  - [Zenn: Validator 設計の 3 つの落とし穴](https://zenn.dev/pikuto/articles/ai-validator-3-pitfalls)
+  - [AI Hack Lab Daily Digest](https://ai-hack-lab.com/insights/) — daily 06:00 JST
 
-## Contributing
+  ## Contact
 
-These skills are extracted from real workflows. If you adapt one to your use case and find a generalization that fits more cases without losing precision, a PR is welcome. Bugs, edge cases, missing failure modes — all valid.
+  - 🐦 [@ue6654](https://x.com/ue6654) on X
+  - 💬 [Contact form](https://ai-hack-lab.com/en/contact/) (24h reply)
 
-The deliberate non-goal is feature creep. A skill should do one thing reliably, not 12 things with config flags.
+  ## License
 
-## License
+  MIT. See [LICENSE](LICENSE).
 
-MIT — see each skill's `LICENSE` file.
-
-## About
-
-A 20-year-old college student building AI automation tools with no prior coding experience as of summer 2025. The skills here are real production patterns, not tutorial snippets.
-
-- Twitter / X: [@ue6654](https://x.com/ue6654)
-- Site: [ai-hack-lab.com](https://ai-hack-lab.com/)
-- English Edition: [ai-hack-lab.com/en/](https://ai-hack-lab.com/en/)
-
-If any of this is useful to your project, the patterns are yours to take and adapt.
+  — pikuto, AI Hack Lab
